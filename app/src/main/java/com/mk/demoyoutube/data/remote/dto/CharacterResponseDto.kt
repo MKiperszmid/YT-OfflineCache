@@ -7,7 +7,7 @@ data class CharacterResponseDto(
     @Json(name = "count")
     val count: Int,
     @Json(name = "data")
-    val `data`: List<Data>,
+    val `data`: List<CharacterDataDto>,
     @Json(name = "nextPage")
     val nextPage: String,
     @Json(name = "totalPages")

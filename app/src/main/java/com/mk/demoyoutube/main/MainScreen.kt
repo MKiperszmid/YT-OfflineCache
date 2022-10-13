@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
@@ -17,13 +18,13 @@ fun MainScreen(
     val state = viewModel.state
 
     if (state.isLoading) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
         }
     } else {
         LazyColumn(modifier = Modifier.fillMaxWidth()) {
             items(state.characters) {
-                Text(text = it.name)
+                Text(text = "${it.name} - ${it.tvShow}")
             }
         }
     }

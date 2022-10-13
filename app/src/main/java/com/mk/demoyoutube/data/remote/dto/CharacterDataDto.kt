@@ -3,7 +3,7 @@ package com.mk.demoyoutube.data.remote.dto
 
 import com.squareup.moshi.Json
 
-data class Data(
+data class CharacterDataDto(
     @Json(name = "allies")
     val allies: List<Any>,
     @Json(name = "enemies")
