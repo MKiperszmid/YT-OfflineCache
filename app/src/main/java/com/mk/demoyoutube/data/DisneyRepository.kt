@@ -10,6 +10,7 @@ class DisneyRepository(
     private val api: DisneyApi,
     private val dao: DisneyDao
 ) {
+
     suspend fun getCharacters(): List<DisneyCharacter> {
         var localCharacters = dao.getCharacters()
 

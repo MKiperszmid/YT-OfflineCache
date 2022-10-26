@@ -5,11 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mk.demoyoutube.data.DisneyRepository
+import com.mk.demoyoutube.GetCharacters
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(
-    private val repository: DisneyRepository
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val getCharacters: GetCharacters
 ) : ViewModel() {
     var state by mutableStateOf(MainState())
         private set
@@ -19,7 +22,7 @@ class MainViewModel(
             state = state.copy(
                 isLoading = true
             )
-            val characters = repository.getCharacters()
+            val characters = getCharacters.getCharacters()
             state = state.copy(
                 characters = characters,
                 isLoading = false
